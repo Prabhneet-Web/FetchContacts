@@ -30,12 +30,24 @@ class _ContactDetailsState extends State<ContactDetails> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     if(_permissionDenied) return const Center(child: Text("Permission denied"));
     if(_contacts == null) return const Center(child: CircularProgressIndicator());
-    return ListView.builder(
-        itemCount: _contacts!.length,
-        itemBuilder: (BuildContext context, int index) {
-                return ListTile(title: Text("${_contacts![index].name.first} ${_contacts![index].name.last}"));
-              });
+    return SafeArea(
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text("All Contacts", style: TextStyle(fontWeight: FontWeight.bold, fontSize: height*0.02, fontFamily: '' ),),
+          ListView.builder(
+            shrinkWrap: true,
+              itemCount: _contacts!.length,
+              itemBuilder: (BuildContext context, int index) {
+                      return ListTile(title: Text("${_contacts![index].name.first} ${_contacts![index].name.last}"));
+                    }),
+        ],
+      ),
+    );
   }
 }
