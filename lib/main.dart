@@ -1,4 +1,4 @@
-import 'package:contact_details/contact_details.dart';
+import 'package:contact_details/contact_details_using_flutter_contacts.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,11 +32,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => showModalBottomSheet(context: context, builder: (_) => ContactDetails()),
+        onPressed: () => showModalBottomSheet(context: context, builder: (_) => ContactDetailsUsingFlutterContacts()),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
