@@ -35,13 +35,10 @@ class _ContactDetailsStateUsingFlutterContacts
         bool nameMatches = contactName.contains(searchTerm);
         if (nameMatches == true) return true;
 
-        // var phone = contact.phones.first.number.firstWhere((element) {
-        //   return element.value.contains(searchTerm);
-        // }, orElse: () => null
-        // );
+        // var phone = contact.phones.firstWhere((element) => element.contains(searchTerm), orElse: ()=> null );
 
         // return phone != null;
-        return false;
+        return true;
       });
       setState(() => _contactFiltered = contacts);
     }
