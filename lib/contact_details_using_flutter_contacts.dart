@@ -99,17 +99,21 @@ class _ContactDetailsStateUsingFlutterContacts
                   child: TextField(
                     controller: _searchController,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                             borderSide: BorderSide()),
                         labelText: "Search Contacts",
                         labelStyle: TextStyle(
                             fontFamily: 'AzoSansMedium',
                             fontSize: height * 0.017),
-                        suffixIcon: Icon(Icons.search)
+                        prefixIcon: const IconTheme(data: IconThemeData(
+                            color: Colors.black
+                        ), child: Icon(Icons.search,))
+                    ),
+
 
                     ),
                   )),
-            ),
+
             Expanded(
               child: ListView.builder(
                   shrinkWrap: true,
